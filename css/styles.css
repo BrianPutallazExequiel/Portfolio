@@ -1,4 +1,4 @@
-:root [data-theme="light"] {
+:root {
   --fs-sm: clamp(0.62rem, 0.21vw + 0.58rem, 0.73rem);
   --fs-sm2: clamp(0.82rem, 0.27vw + 0.64rem, 0.95rem);
   --fs-base: clamp(1rem, 0.34vw + 0.93rem, 1.19rem);
