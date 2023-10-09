@@ -18,10 +18,6 @@
   --gradient-text: linear-gradient(to left, #ff26b2, #851bd9, #6019e6);
   --font-primary: "Poppins", sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   * {
     -webkit-animation: none !important;
