@@ -7,6 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
     nav.classList.toggle("active", burgerCheckbox.checked);
   });
 });
+// Dark theme
+
+document.addEventListener("DOMContentLoaded", function () {
+  const switchInput = document.querySelector(".theme-switch__checkbox");
+
+  switchInput.addEventListener("change", function () {
+    const body = document.body;
+    if (this.checked) {
+      body.classList.add("dark-theme");
+    } else {
+      body.classList.remove("dark-theme");
+    }
+  });
+});
+//Change language
 const locales = ["es-ES", "en-GB"];
 
 function getFlagSrc(countryCode) {
@@ -20,9 +35,10 @@ const dropdownContent = document.getElementById("dropdown-content");
 
 function setSelectedLocale(locale) {
   const intlLocale = new Intl.Locale(locale);
+  const langCode = intlLocale.language.toUpperCase();
   const langName = new Intl.DisplayNames([locale], {
     type: "language",
-  }).of(intlLocale.language);
+  }).of(langCode);
 
   dropdownContent.innerHTML = "";
 
