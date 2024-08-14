@@ -1,3 +1,18 @@
+// Menu Burger
+const burger = document.querySelector('#burger');
+const navItem = document.querySelector('.header__nav-list');
+function toggleNavDisplay() {
+    if (window.innerWidth > 820) {
+        navItem.style.display = 'flex';
+    } else {
+        navItem.style.display = burger.checked ? 'flex' : 'none';
+    }
+}
+burger.addEventListener('change', toggleNavDisplay);
+window.addEventListener('resize', toggleNavDisplay);
+toggleNavDisplay();
+
+// Theme Switch 
 var canvas;
 var context;
 var screenH;
@@ -6,7 +21,7 @@ var stars = [];
 var fps = 50;
 var numStars = 50;
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Calculate the screen size
     screenH = $(window).height();
     screenW = $(window).width();
@@ -25,7 +40,7 @@ $(document).ready(function() {
     setInterval(animate, 1000 / fps);
 
     // Redraw stars when window is resized
-    $(window).resize(function() {
+    $(window).resize(function () {
         screenH = $(window).height();
         screenW = $(window).width();
         canvas.attr('height', screenH);
@@ -34,12 +49,8 @@ $(document).ready(function() {
         createStars();
     });
 });
-
-/**
- * Create stars
- */
 function createStars() {
-    for(var i = 0; i < numStars; i++) {
+    for (var i = 0; i < numStars; i++) {
         var x = Math.round(Math.random() * screenW);
         var y = Math.round(Math.random() * screenH);
         var length = 3 + Math.random() * 4; // Hacer las estrellas más grandes
@@ -58,7 +69,7 @@ function createStars() {
  */
 function animate() {
     context.clearRect(0, 0, screenW, screenH);
-    $.each(stars, function() {
+    $.each(stars, function () {
         this.draw(context);
     });
 }
@@ -88,14 +99,14 @@ function Star(x, y, length, opacity) {
  * 
  * @param context
  */
-Star.prototype.draw = function(context) {
+Star.prototype.draw = function (context) {
     context.save();
     context.translate(this.x, this.y);
     context.rotate((Math.PI * 1 / 10));
 
-    if(this.opacity > 1) {
+    if (this.opacity > 1) {
         this.factor = -1;
-    } else if(this.opacity <= 0) {
+    } else if (this.opacity <= 0) {
         this.factor = 1;
         this.x = Math.round(Math.random() * screenW);
         this.y = Math.round(Math.random() * screenH);
