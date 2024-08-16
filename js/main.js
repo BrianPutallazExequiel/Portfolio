@@ -2,7 +2,7 @@
 const burger = document.querySelector('#burger');
 const navItem = document.querySelector('.header__nav-list');
 function toggleNavDisplay() {
-    if (window.innerWidth > 820) {
+    if (window.innerWidth > 840) {
         navItem.style.display = 'flex';
     } else {
         navItem.style.display = burger.checked ? 'flex' : 'none';
@@ -125,7 +125,7 @@ Star.prototype.draw = function (context) {
     }
     context.lineTo(0, this.length);
     context.closePath();
-    context.fillStyle = "rgba(255, 255, 255, 0.4)"; // Color blanco con 40% de opacidad
+    context.fillStyle = "#fce1c9"; // Color blanco con 40% de opacidad
     context.shadowBlur = 5;
     context.shadowColor = '#ffffff'; // Sombra blanca
     context.fill();
